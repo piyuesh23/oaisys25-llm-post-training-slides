@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Presentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Title Slide -->
+            <section data-background-color="#0a0a0a">
+                <h1>Beyond the Hype</h1>
+                <h3 style="color: #999999; font-weight: 400;">What Post-Training Can (and Can't) Do for LLMs</h3>
+                <p style="margin-top: 2rem;">
+                    <small style="color: #DC143C;">🎯 Breaking the myths, one fine-tune at a time</small>
+                </p>
+                <p class="fragment" style="font-size: 0.75em; margin-top: 1.5rem; color: #999999;">
+                    <em>"LLM before vs after post-training = the ultimate glow-up"</em>
+                </p>
+            </section>
+
+            <!-- Reality Check -->
+            <section>
+                <h2>The Reality Check 🤔</h2>
+                <p style="font-size: 1em; margin-bottom: 1.5rem;">Not all models need post-training</p>
+                <div class="fragment">
+                    <p style="font-size: 1.2em; margin: 1.5rem 0;">🛠️ It's sculpting, not reinventing the wheel</p>
+                </div>
+                <div class="fragment card" style="margin-top: 2rem; padding: 1.5rem; font-size: 0.85em;">
+                    <p><em>"Using a base model as-is is like buying 90% assembled IKEA furniture. Post-training is the other 10%... the screws that keep the table from wobbling when life gets tough."</em></p>
+                </div>
+            </section>
+
+            <!-- What Post-Training Should Achieve -->
+            <section>
+                <h2>What Post-Training SHOULD Achieve ✨</h2>
+                <ul style="font-size: 0.8em;">
+                    <li class="fragment">📝 <strong>Instruction-following mastery</strong> - Complex, multi-step instructions</li>
+                    <li class="fragment">🎭 <strong>Role switching & tone control</strong> - Shakespeare → corporate email → casual chat</li>
+                    <li class="fragment">🧮 <strong>Better reasoning / math / multilingual</strong> - Enhanced capabilities</li>
+                    <li class="fragment">📊 <strong>Structure & task consistency</strong> - Predictable, reliable outputs</li>
+                </ul>
+                <p class="fragment" style="margin-top: 2rem; font-size: 0.8em; font-style: italic; color: #999999;">
+                    Shakespeare mode → corporate email → Hinglish meme mode? That's post-training magic! 🪄
+                </p>
+            </section>
+
+            <!-- The Recipe -->
+            <section data-background-color="#1a1a1a">
+                <h2>The Post-Training Recipe 👨‍🍳</h2>
+                <h3 style="color: #DC143C; margin-bottom: 2rem; font-size: 1.1em;">(MasterChef LLM Edition)</h3>
+                <div style="text-align: left; font-size: 0.75em;">
+                    <p class="fragment"><strong>Step 1:</strong> Start with SFT - Reliable, cheap, predictable</p>
+                    <p class="fragment"><strong>Step 2:</strong> Add Preference Optimization or RL - Behavior shaping</p>
+                    <p class="fragment"><strong>Step 3:</strong> Season with Great Data - Quality beats quantity</p>
+                    <p class="fragment"><strong>Step 4:</strong> Taste-test with Evals - Test after each change</p>
+                </div>
+                <p class="fragment" style="margin-top: 2rem; font-style: italic; font-size: 0.7em; color: #999999;">
+                    "SFT = marinating the chicken. Preference training = adding spices. Evals = tasting." 🍗
+                </p>
+            </section>
+
+            <!-- Evals First -->
+            <section>
+                <h2>Step 1: Evals Before Everything Else 📊</h2>
+                <p style="font-size: 0.9em; margin-bottom: 1.5rem;">You can't improve what you can't measure!</p>
+                <ul style="font-size: 0.75em;">
+                    <li class="fragment">✅ Define "good" behavior BEFORE training</li>
+                    <li class="fragment">🎯 Use layered eval suites (chat, reasoning, code, multilingual)</li>
+                    <li class="fragment">🔄 Keep evals updated - expectations evolve fast</li>
+                    <li class="fragment">🌍 Test on real-world scenarios, not just benchmarks</li>
+                    <li class="fragment">⚠️ Track regressions as carefully as improvements</li>
+                </ul>
+                <div class="fragment card" style="margin-top: 2rem; padding: 1.2rem; font-size: 0.7em;">
+                    <p><em>"Training without evals is like renovating your house with a blindfold — you'll only know it's wrong when you bump into a wall." 🏠😵</em></p>
+                </div>
+            </section>
+
+            <!-- Choosing Base Model -->
+            <section>
+                <h2>Choosing the Right Base Model 🎯</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1.5rem; font-size: 1.1em;">Size Matters (But Not How You Think)</h3>
+                <div class="two-columns" style="font-size: 0.75em;">
+                    <div>
+                        <p class="fragment"><strong>Pick size intentionally</strong><br>Bigger isn't always better</p>
+                        <p class="fragment"><strong>Dense models easiest</strong><br>Standard architectures</p>
+                    </div>
+                    <div>
+                        <p class="fragment"><strong>Proven track records</strong><br>Choose successful examples</p>
+                        <p class="fragment"><strong>Consider the full picture</strong><br>Latency, cost, speed, memory</p>
+                    </div>
+                </div>
+                <p class="fragment" style="margin-top: 2rem; font-style: italic; font-size: 0.7em; color: #999999;">
+                    "Buying a 70-inch TV for a 7-foot room is chaos. Same with picking a massive model for tiny use-cases." 📺
+                </p>
+            </section>
+
+            <!-- Hall of Shame -->
+            <section data-background-color="#1a1a1a">
+                <h2>Common Post-Training Mistakes 🚫</h2>
+                <h3 style="color: #DC143C; font-size: 1.1em;">(AKA the Hall of Shame)</h3>
+                <ul style="font-size: 0.75em; margin-top: 1.5rem;">
+                    <li class="fragment">😵 <strong>Overfitting narrow domains</strong> - Model forgets everything else</li>
+                    <li class="fragment">🙈 <strong>Bad evaluation design</strong> - No idea if anything improved</li>
+                    <li class="fragment">⚖️ <strong>Wrong data mixture</strong> - Great at code but terrible at chatting</li>
+                    <li class="fragment">🌪️ <strong>Changing too many variables</strong> - Can't tell what worked</li>
+                </ul>
+                <p class="fragment" style="margin-top: 2rem; font-style: italic; font-size: 0.7em; color: #999999;">
+                    "Tuning too many things at once is like mixing every soda flavor because 'YOLO'. It never ends well." 🥤
+                </p>
+            </section>
+
+            <!-- When NOT to Post-Train -->
+            <section>
+                <h2>When NOT to Post-Train 🛑</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1.5rem; font-size: 1.1em;">(Yes, Sometimes Don't Do It)</h3>
+                <ul style="font-size: 0.75em;">
+                    <li class="fragment">✋ <strong>Simple prompting solves your need</strong> - Don't overcomplicate</li>
+                    <li class="fragment">📚 <strong>Grand knowledge updates</strong> - Use RAG, not training</li>
+                    <li class="fragment">🗑️ <strong>Bad or tiny data</strong> - Garbage in, garbage out</li>
+                    <li class="fragment">✅ <strong>Base model already works</strong> - No specialization needed</li>
+                </ul>
+                <p class="fragment" style="margin-top: 2rem; font-style: italic; font-size: 0.7em; color: #999999;">
+                    "You don't need a custom sports car if all you're doing is grocery runs." 🏎️🛒
+                </p>
+            </section>
+
+            <!-- Why LLMs Hallucinate -->
+            <section>
+                <section>
+                    <h2>Why LLMs Hallucinate 🤖💭</h2>
+                    <p style="font-size: 0.9em; color: #999999;">(And What to Do About It)</p>
+                    <p class="fragment" style="margin-top: 2rem; font-size: 0.8em;">Press ↓ to dive deeper</p>
+                </section>
+                <section>
+                    <h3>The Architecture Problem</h3>
+                    <div class="card" style="padding: 1.5rem; margin: 1.5rem 0; font-size: 0.8em;">
+                        <p>LLMs predict the next most likely token. They don't have a "truth database" — they're sophisticated autocomplete on steroids.</p>
+                        <p class="fragment" style="margin-top: 1rem;">Sometimes the most likely next word is <strong>confidently wrong</strong>. 😬</p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Training Gaps</h3>
+                    <div class="card" style="padding: 1.5rem; margin: 1.5rem 0; font-size: 0.8em;">
+                        <p>The model never saw certain information, so it interpolates based on patterns.</p>
+                        <p class="fragment" style="margin-top: 1rem; font-style: italic; color: #999999;">"Like a student who didn't study for a test and is winging the essay question with 'vibes.'" 📝✨</p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Mitigation Strategies 🛡️</h3>
+                    <ul style="font-size: 0.75em; text-align: left;">
+                        <li class="fragment">Use RAG to ground outputs in real documents</li>
+                        <li class="fragment">Add confidence scoring</li>
+                        <li class="fragment">Teach the model to say "I don't know"</li>
+                        <li class="fragment">Use function calling for precision</li>
+                        <li class="fragment">Prompt for citations</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Post-Training ≠ Magic -->
+            <section data-background-color="#1a1a1a">
+                <h2>Post-Training ≠ Magic 🪄❌</h2>
+                <div style="font-size: 0.8em; margin-top: 2rem;">
+                    <p class="fragment">It's a powerful toolkit, but use the right tool for the job</p>
+                    <p class="fragment" style="margin-top: 1.5rem;">More data isn't always better</p>
+                    <p class="fragment" style="margin-top: 1.5rem;">Fine-tuning won't teach new facts</p>
+                    <p class="fragment" style="margin-top: 2rem; font-size: 1.1em; color: #DC143C;">
+                        <strong>Hallucinations are features, not bugs</strong> 🐛
+                    </p>
+                    <p class="fragment" style="margin-top: 1rem; font-size: 0.75em; color: #999999;">
+                        (You can reduce them, but you can't eliminate them entirely)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Start Simple -->
+            <section>
+                <h2>Start Simple, Scale Smart 🚀</h2>
+                <div style="font-size: 0.8em; text-align: left; margin-top: 1.5rem;">
+                    <p class="fragment">1️⃣ Try <strong>prompt engineering</strong> first</p>
+                    <p class="fragment">2️⃣ Graduate to <strong>RAG</strong> for knowledge</p>
+                    <p class="fragment">3️⃣ Use <strong>fine-tuning</strong> for behavior</p>
+                    <p class="fragment">4️⃣ Apply <strong>function calling</strong> for precision</p>
+                </div>
+                <div class="fragment card" style="margin-top: 2rem; padding: 1.5rem;">
+                    <p style="font-size: 1em; color: #DC143C;"><strong>Quality > Quantity</strong></p>
+                    <p style="font-size: 0.75em; margin-top: 0.8rem; color: #999999;">In training data, prompts, and everything else. Curate ruthlessly. Test relentlessly. Iterate constantly.</p>
+                </div>
+            </section>
+
+            <!-- The Cheat Sheet -->
+            <section data-background-color="#1a1a1a">
+                <h2>The Post-Training Cheat Sheet 📋</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1.5rem; font-size: 1.1em;">Your Quick Reference Guide</h3>
+                <ul style="font-size: 0.7em; text-align: left;">
+                    <li class="fragment">✅ Start with WHY - Have a clear reason before you begin</li>
+                    <li class="fragment">📊 Evaluate capabilities → THEN train - Know your baseline first</li>
+                    <li class="fragment">🍳 Use SFT → PO → RL - Follow the proven recipe</li>
+                    <li class="fragment">🎯 Curate clean, balanced data - Quality over quantity, always</li>
+                    <li class="fragment">🔄 Run evals after each step - Measure progress continuously</li>
+                    <li class="fragment">🎉 When done right → Reliable, aligned assistant</li>
+                </ul>
+                <p class="fragment" style="margin-top: 2rem; font-style: italic; font-size: 0.65em; color: #999999;">
+                    "Post-training isn't magic — it's cooking: pick good ingredients, taste often, and don't burn the kitchen." 👨‍🍳🔥
+                </p>
+            </section>
+
+            <!-- Live Demo Ideas -->
+            <section>
+                <h2>Live Demo Ideas 🎬</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1.5rem; font-size: 1.1em;">Make It Memorable</h3>
+                <div style="font-size: 0.75em; text-align: left;">
+                    <p class="fragment">🦖 <strong>Instruction-following:</strong> "Explain quantum computing to a 5-year-old who likes dinosaurs & hates broccoli"</p>
+                    <p class="fragment">📚 <strong>RAG vs No-RAG:</strong> "What's our refund policy?" (with and without knowledge base)</p>
+                    <p class="fragment">🎭 <strong>Tone-shift mastery:</strong> "Formal → Hinglish → Bollywood villain mode"</p>
+                    <p class="fragment">🔧 <strong>Tool-calling for precision:</strong> Live loan EMI calculation with real numbers</p>
+                </div>
+                <div class="fragment card" style="margin-top: 2rem; padding: 1.2rem; font-size: 0.7em;">
+                    <p style="color: #DC143C;"><strong>Audience Challenges:</strong></p>
+                    <p style="margin-top: 0.5rem; color: #999999;">"Guess what the base model will do" game • "Fix this prompt" challenge • "Choose your training method" quiz</p>
+                </div>
+            </section>
+
+            <!-- Key Takeaways -->
+            <section>
+                <h2>Key Takeaways 🎯</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1.5rem; font-size: 1.1em;">What to Remember Tomorrow</h3>
+                <div style="font-size: 0.75em;">
+                    <p class="fragment">💡 Post-Training ≠ Magic - It's a powerful toolkit, use the right tool</p>
+                    <p class="fragment">🎯 Start Simple, Scale Smart - Prompt engineering → RAG → Fine-tuning → Function calling</p>
+                    <p class="fragment">🐛 Hallucinations Are Features - You can reduce them with RAG, grounding, and smart prompting</p>
+                    <p class="fragment">⭐ Quality > Quantity - In training data, prompts, and everything else</p>
+                </div>
+                <p class="fragment" style="margin-top: 2.5rem; font-size: 1em; color: #DC143C;">
+                    <strong>Test relentlessly. Iterate constantly.</strong>
+                </p>
+            </section>
+
+            <!-- Final Wisdom -->
+            <section data-background-color="#0a0a0a">
+                <h2>Final Wisdom 🧙‍♂️</h2>
+                <div style="font-size: 0.9em; margin-top: 2rem; line-height: 1.8;">
+                    <p class="fragment">Post-training is powerful, but it's not a magic wand</p>
+                    <p class="fragment">Use it when it makes sense</p>
+                    <p class="fragment"><strong>Not when memes tell you to</strong> 😄</p>
+                    <p class="fragment" style="margin-top: 2.5rem; font-size: 1.2em; color: #DC143C;">
+                        Now go forth and build something awesome! 🚀
+                    </p>
+                </div>
+            </section>
+
+            <!-- Thank You Slide -->
+            <section data-background-color="#0a0a0a">
+                <h1>Thank You! 🙏</h1>
+                <h3 style="color: #999999; font-weight: 400;">Questions?</h3>
+                <p style="margin-top: 2rem; font-size: 0.85em; color: #999999;">
+                    <em>"You don't need bigger models — you need smarter training"</em>
+                </p>
+                <p style="margin-top: 2rem; font-size: 0.75em; font-style: italic; color: #999999;">
+                    Let's chat! (Preferably not about quantum physics unless we have broccoli) 🥦
+                </p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/zoom/zoom.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+        }).then(() => {
+            // Add 'ready' class to reveal container once initialized
+            document.querySelector('.reveal').classList.add('ready');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+/* Custom Styles for Reveal.js Presentation */
+
+:root {
+    /* Color Scheme from theoaisys.com screenshot */
+    --primary-color: #DC143C;        /* Crimson Red - primary accent */
+    --secondary-color: #ff4757;      /* Lighter Red - secondary elements */
+    --accent-color: #DC143C;         /* Crimson - highlights */
+    --success-color: #10b981;        /* Emerald - success states */
+    --danger-color: #DC143C;         /* Red - warnings/errors */
+    --text-color: #ffffff;
+    --text-muted: #999999;           /* Gray text */
+    --text-secondary: #666666;       /* Darker gray */
+    --bg-dark: #0a0a0a;              /* Almost black */
+    --bg-medium: #1a1a1a;            /* Dark gray */
+    --bg-light: #2a2a2a;             /* Card background */
+    --bg-card: #333333;              /* Lighter card */
+    --border-color: #3a3a3a;         /* Subtle borders */
+}
+
+/* Global Overrides */
+.reveal {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 32px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.reveal .slides section {
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.1);
+}
+
+/* Prevent flickering on load - hide slides until Reveal.js is ready */
+.reveal .slides {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.reveal.ready .slides {
+    opacity: 1;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+    text-transform: none;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.reveal h1 {
+    font-size: 2.5em;
+    text-shadow: 0 2px 8px rgba(220, 20, 60, 0.4);
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 0.3em;
+    letter-spacing: -0.02em;
+}
+
+.reveal h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.8em;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.reveal h3 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 0.6em;
+    font-weight: 600;
+}
+
+.reveal p {
+    margin: 0.6em 0;
+    line-height: 1.5;
+}
+
+.reveal small {
+    font-size: 0.7em;
+}
+
+/* Two Column Layout */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+.two-columns h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1em;
+}
+
+.two-columns p {
+    font-size: 0.85em;
+    line-height: 1.4;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-box {
+    background: var(--bg-light);
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(220, 20, 60, 0.3);
+    border-color: var(--primary-color);
+    background: var(--bg-card);
+}
+
+.stat-box h3 {
+    font-size: 2.5em;
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.stat-box p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+/* Lists */
+.reveal ul,
+.reveal ol {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+.reveal li {
+    margin: 0.6em 0;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+.reveal ul li::marker {
+    color: var(--primary-color);
+}
+
+.reveal strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+    background: var(--bg-light);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    font-style: italic;
+    font-size: 1.1em;
+    margin: 2rem auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    color: var(--text-muted);
+}
+
+/* Code Blocks */
+.reveal pre {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    font-size: 0.7em;
+}
+
+.reveal code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    padding: 0.2em 0.4em;
+    background: var(--bg-light);
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: var(--primary-color);
+}
+
+/* Images */
+.reveal img {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    max-width: 85%;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
+/* Fragment Highlights */
+.reveal .fragment.highlight-blue {
+    color: var(--primary-color);
+}
+
+.reveal .fragment.highlight-blue.visible {
+    color: var(--accent-color);
+}
+
+/* Custom Card Styles with Glassmorphism */
+.card {
+    background: rgba(42, 42, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover,
+.card:focus-within {
+    border-color: rgba(220, 20, 60, 0.5);
+    box-shadow: 
+        0 6px 20px rgba(220, 20, 60, 0.15),
+        0 0 15px rgba(220, 20, 60, 0.1);
+    background: rgba(51, 51, 51, 0.7);
+    transform: translateY(-1px);
+}
+
+.card.fragment.visible {
+    animation: cardGlow 0.5s ease-out;
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 6px 20px rgba(220, 20, 60, 0.2),
+            0 0 20px rgba(220, 20, 60, 0.15);
+    }
+    100% {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Progress Bar */
+.reveal .progress {
+    background: var(--bg-medium);
+    height: 3px;
+}
+
+.reveal .progress span {
+    background: var(--primary-color);
+}
+
+/* Controls */
+.reveal .controls {
+    color: var(--primary-color);
+}
+
+.reveal .controls button {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.reveal .controls button:hover {
+    opacity: 1;
+}
+
+/* Slide Numbers */
+.reveal .slide-number {
+    background: var(--bg-light);
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 0.7em;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal.ready section {
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent slide overlap during transitions */
+.reveal .slides section {
+    visibility: hidden;
+}
+
+.reveal .slides section.present,
+.reveal .slides section.past,
+.reveal .slides section.future {
+    visibility: visible;
+}
+
+/* Ensure only current slide is fully visible */
+.reveal .slides section.past,
+.reveal .slides section.future {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.reveal .slides section.present {
+    opacity: 1 !important;
+}
+
+/* Emoji Styling */
+.reveal .emoji {
+    font-style: normal;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* Consistent Header with Glassmorphism */
+.slide-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(220, 20, 60, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 100;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.slide-header-left {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.05em;
+}
+
+.slide-header-right {
+    text-align: right;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.slide-header-right strong {
+    color: var(--text-color);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Adjust reveal container for header */
+.reveal .slides {
+    margin-top: 50px;
+}
+
+/* Enhanced Background patterns with glassmorphism */
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(220, 20, 60, 0.08) 0%, transparent 50%),
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(220, 20, 60, 0.05) 35px, rgba(220, 20, 60, 0.05) 36px),
+        repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(220, 20, 60, 0.05) 35px, rgba(220, 20, 60, 0.05) 36px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Image containers */
+.slide-image {
+    max-width: 300px;
+    max-height: 200px;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(220, 20, 60, 0.3);
+    border: 2px solid var(--border-color);
+    object-fit: contain;
+}
+
+.slide-image-small {
+    max-width: 200px;
+    max-height: 150px;
+    margin: 0.8rem auto;
+    object-fit: contain;
+}
+
+.slide-image-large {
+    max-width: 400px;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.slide-image-inline {
+    max-width: 180px;
+    max-height: 120px;
+    margin: 0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Side-by-side layout for text and images */
+.content-with-image {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.content-with-image .text-content {
+    flex: 1;
+    text-align: left;
+}
+
+.content-with-image .image-content {
+    flex: 0 0 auto;
+}
+
+.content-with-image .image-content img {
+    max-width: 200px;
+    max-height: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(220, 20, 60, 0.3);
+    border: 2px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reveal {
+        font-size: 24px;
+    }
+    
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .reveal h1 {
+        font-size: 2em;
+    }
+    
+    .reveal h2 {
+        font-size: 1.5em;
+    }
+    
+    .reveal li {
+        font-size: 0.8em;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .reveal .controls,
+    .reveal .progress {
+        display: none !important;
+    }
+}

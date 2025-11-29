@@ -1,0 +1,8 @@
+<svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&amp;display=swap');
+    </style>
+  </defs>
+  <text x="50%" y="50%" font-family="'Pacifico', 'Inter', cursive" font-size="100" font-weight="300" fill="#ffffff" opacity="0.05" text-anchor="middle" dominant-baseline="middle" style="font-style: italic; letter-spacing: 2px;">Oaisys</text>
+</svg>

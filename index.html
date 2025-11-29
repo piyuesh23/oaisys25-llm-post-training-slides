@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Hype - Post-Training for LLMs | OAISYS'25</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Consistent Header -->
+    <div class="slide-header">
+        <div class="slide-header-left">OAISYS'25</div>
+        <div class="slide-header-right">
+            <strong>Hosted by</strong><br>
+            QED42 ft. FreelyGive
+        </div>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Title Slide -->
+            <section data-background-color="#0a0a0a">
+                <div class="bg-pattern"></div>
+                <h1>Beyond the Hype</h1>
+                <h3 style="color: #999999; font-weight: 400;">What Post-Training Can (and Can't) Do for LLMs</h3>
+                <p style="margin-top: 1.5rem;">
+                    <small style="color: #DC143C;">🎯 Your Guide to Not Messing This Up</small>
+                </p>
+                <p class="fragment" style="font-size: 0.75em; margin-top: 2rem; color: #999999;">
+                    <em>"Spoiler: It's not all magic, and 'just add more data' isn't always the answer"</em>
+                </p>
+            </section>
+
+            <!-- What We're Covering Today -->
+            <section>
+                <h2>What We're Covering Today 📋</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.7em; margin-top: 1.5rem;">
+                    <div class="card fragment">
+                        <h3 style="font-size: 0.95em; margin-bottom: 0.4rem;">01 Myth-Busting Theater</h3>
+                        <p style="color: #999999; font-size: 0.85em;">Debunking misconceptions with humor</p>
+                    </div>
+                    <div class="card fragment">
+                        <h3 style="font-size: 0.95em; margin-bottom: 0.4rem;">02 Decision Framework</h3>
+                        <p style="color: #999999; font-size: 0.85em;">When to fine-tune, RAG, or prompt</p>
+                    </div>
+                    <div class="card fragment">
+                        <h3 style="font-size: 0.95em; margin-bottom: 0.4rem;">03 ML Glossary for Mortals</h3>
+                        <p style="color: #999999; font-size: 0.85em;">Tokens, embeddings, attention</p>
+                    </div>
+                    <div class="card fragment">
+                        <h3 style="font-size: 0.95em; margin-bottom: 0.4rem;">04 How LLMs Work</h3>
+                        <p style="color: #999999; font-size: 0.85em;">Neural network architecture</p>
+                    </div>
+                    <div class="card fragment">
+                        <h3 style="font-size: 0.95em; margin-bottom: 0.4rem;">05 Post-Training Methods</h3>
+                        <p style="color: #999999; font-size: 0.85em;">Your complete toolkit</p>
+                    </div>
+                    <div class="card fragment">
+                        <h3 style="font-size: 0.95em; margin-bottom: 0.4rem;">06 Key Takeaways</h3>
+                        <p style="color: #999999; font-size: 0.85em;">What to remember tomorrow</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Myth #1: Fine-Tuning = Adding Knowledge -->
+            <section data-background-color="#1a1a1a">
+                <h2>Myth #1: Fine-Tuning = Adding Knowledge 🧠</h2>
+                <div class="card" style="margin-top: 1rem; padding: 1rem; font-size: 0.75em;">
+                    <p style="font-style: italic; color: #DC143C;">"If I fine-tune ChatGPT on our Q4 budget, it'll know all the numbers!"</p>
+                </div>
+                <div class="content-with-image fragment">
+                    <div class="text-content" style="font-size: 0.7em;">
+                        <p><strong>Reality:</strong> Fine-tuning teaches <strong>behavior, tone, and patterns</strong> — not facts.</p>
+                        <p style="margin-top: 0.8rem; color: #999999;">Think of it like teaching your dog a new trick — you're not uploading "knowledge" into its brain.</p>
+                        <p style="margin-top: 0.8rem; color: #999999;"><em>If you need ChatGPT to know next year's budget, use RAG to give it the actual document.</em></p>
+                    </div>
+                    <div class="image-content">
+                        <div style="font-size: 4em;">🐶❌📊</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Myth #2: More Data = Better Model -->
+            <section>
+                <h2>Myth #2: More Data = Better Model 📊</h2>
+                <div class="content-with-image fragment">
+                    <div class="text-content">
+                        <div style="font-size: 0.7em;">
+                            <div class="card" style="margin-bottom: 0.8rem; padding: 0.8rem;">
+                                <h3 style="font-size: 0.9em; color: #DC143C;">The Assumption</h3>
+                                <p style="color: #999999;">"Let's throw ALL our data at the model. More is better, right?"</p>
+                            </div>
+                            <div class="card" style="margin-bottom: 0.8rem; padding: 0.8rem;">
+                                <h3 style="font-size: 0.9em; color: #DC143C;">The Reality</h3>
+                                <p style="color: #999999;">More bad data = more bad outputs. Quality beats quantity every time.</p>
+                            </div>
+                            <p style="margin-top: 1rem; font-size: 0.9em; color: #999999;"><em>Curate your training data like you're Marie Kondo-ing your closet — does this data spark actual value?</em></p>
+                        </div>
+                    </div>
+                    <div class="image-content">
+                        <div style="font-size: 4em;">✨🗁️</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Myth #3: RAG is Basically Cheating -->
+            <section data-background-color="#1a1a1a">
+                <h2>Myth #3: RAG is Basically Cheating 🎯</h2>
+                <div class="card" style="margin-top: 1rem; padding: 1rem; font-size: 0.75em;">
+                    <p style="font-style: italic; color: #DC143C;">"Using RAG means the model isn't really learning!"</p>
+                </div>
+                <div class="content-with-image fragment">
+                    <div class="text-content" style="font-size: 0.7em;">
+                        <p><strong>Hot take:</strong> RAG isn't cheating — it's smart problem-solving.</p>
+                        <p style="margin-top: 0.8rem; color: #999999;">Retrieval-Augmented Generation gives the model access to external knowledge at runtime, like letting someone use a calculator during a math test.</p>
+                        <p style="margin-top: 0.8rem; color: #DC143C;"><strong>Use RAG when:</strong> Your data changes frequently, you need citations, or the info wasn't in the training data.</p>
+                    </div>
+                    <div class="image-content">
+                        <div style="font-size: 4em;">📚✅</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Myth #4: You Can Train Away Hallucinations -->
+            <section>
+                <h2>Myth #4: Train Away Hallucinations 🤖</h2>
+                <div class="content-with-image fragment">
+                    <div class="text-content" style="font-size: 0.7em;">
+                        <p>Hallucinations — those moments when ChatGPT invents facts with the confidence of a game show host — are <strong>baked into how LLMs work</strong>.</p>
+                        <p style="margin-top: 0.8rem; color: #999999;">They're next-token prediction machines, not truth oracles. Fine-tuning won't magically fix this.</p>
+                        <div class="card" style="margin-top: 1rem; padding: 1rem; font-size: 0.9em;">
+                            <p style="color: #999999;"><em>Trying to eliminate hallucinations with more training is like adding extra cheese to a burnt pizza — the pizza is still burnt.</em></p>
+                        </div>
+                        <p style="margin-top: 1rem; color: #DC143C;"><strong>What actually helps:</strong> Better prompting, RAG for grounding, confidence scoring, teaching the model to say "I don't know"</p>
+                    </div>
+                    <div class="image-content">
+                        <div style="font-size: 4em;">🤖❓</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Myth #5: Models Understand Your Vague Vibes -->
+            <section data-background-color="#1a1a1a">
+                <h2>Myth #5: Models Understand Vague Vibes ✨</h2>
+                <div class="content-with-image fragment">
+                    <div class="text-content" style="font-size: 0.7em;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="card">
+                                <h3 style="font-size: 0.9em; color: #DC143C;">What you said</h3>
+                                <p style="color: #999999; font-style: italic;">"Just make it sound more... professional?"</p>
+                            </div>
+                            <div class="card">
+                                <h3 style="font-size: 0.9em; color: #DC143C;">What model heard</h3>
+                                <p style="color: #999999; font-style: italic;">"Execute undefined_vibe.exe... ERROR 404"</p>
+                            </div>
+                        </div>
+                        <p>LLMs are pattern-matching machines. They need <strong>clear, specific instructions</strong>.</p>
+                        <p style="margin-top: 0.8rem; color: #999999;">Instead of hoping fine-tuning will telepathically understand your brand voice, <strong>give examples</strong>.</p>
+                        <p style="margin-top: 0.8rem; color: #DC143C;"><strong>Pro tip:</strong> If your prompt is vague, your output will be vague. Garbage in, artisanal garbage out.</p>
+                    </div>
+                    <div class="image-content">
+                        <div style="font-size: 4em;">🤔❌</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Decision Tree -->
+            <section>
+                <h2>The Decision Tree 🌳</h2>
+                <h3 style="color: #DC143C; margin-bottom: 0.8rem; font-size: 0.95em;">What Do I Actually Need?</h3>
+                <div style="font-size: 0.65em; text-align: left;">
+                    <div class="card fragment" style="margin-bottom: 0.6rem; padding: 0.7rem;">
+                        <p><strong style="color: #DC143C;">Problem:</strong> Outdated or Missing Info</p>
+                        <p style="color: #999999; margin-top: 0.3rem;"><strong>Solution:</strong> RAG — Give model access to external knowledge</p>
+                    </div>
+                    <div class="card fragment" style="margin-bottom: 0.6rem; padding: 0.7rem;">
+                        <p><strong style="color: #DC143C;">Problem:</strong> Wrong Tone or Style</p>
+                        <p style="color: #999999; margin-top: 0.3rem;"><strong>Solution:</strong> Fine-tuning — Teach it how to talk, not what to know</p>
+                    </div>
+                    <div class="card fragment" style="margin-bottom: 0.6rem; padding: 0.7rem;">
+                        <p><strong style="color: #DC143C;">Problem:</strong> Bad at Math/Logic/APIs</p>
+                        <p style="color: #999999; margin-top: 0.3rem;"><strong>Solution:</strong> Function Calling — Let code handle code things</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.7rem;">
+                        <p><strong style="color: #DC143C;">Problem:</strong> Prompt Isn't Working</p>
+                        <p style="color: #999999; margin-top: 0.3rem;"><strong>Solution:</strong> Better Prompt Engineering — Rewrite it first</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ML Glossary - Part 1 -->
+            <section data-background-color="#1a1a1a">
+                <h2>ML Glossary for Normal Humans 📖</h2>
+                <p style="font-size: 0.7em; color: #999999; margin-bottom: 1rem;">Let's decode the jargon with metaphors that actually make sense</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; font-size: 0.65em; text-align: left;">
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Model:</strong> The "brain" created after training. It's basically a mathematical pattern-matcher.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Tokens:</strong> Breaking text into crumbs so the model can digest it. "ChatGPT" becomes ["Chat", "G", "PT"].</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Embeddings:</strong> The model's secret love language. Words get converted into numbers that capture meaning.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Weights:</strong> The billions of tiny knobs inside the model that get adjusted during training.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Attention:</strong> The part of the model that decides which words matter most in a sentence.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Training:</strong> Feeding the model lots of data so it can learn patterns. Like teaching a dog tricks, but with math.</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.6em; color: #999999; margin-top: 1.5rem; text-align: right;">Press → for more terms</p>
+            </section>
+
+            <!-- ML Glossary - Part 2 -->
+            <section data-background-color="#1a1a1a">
+                <h2>ML Glossary for Normal Humans 📖</h2>
+                <p style="font-size: 0.7em; color: #999999; margin-bottom: 1rem;">More essential terms decoded</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; font-size: 0.65em; text-align: left;">
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Inference:</strong> Using the trained model to answer questions or make decisions. The model's "showtime."</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Labels:</strong> The answer the model is supposed to learn. The actual house price in training data.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Overfitting:</strong> When the model memorizes training data instead of learning to generalize.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Underfitting:</strong> When the model hasn't learned enough — too simple to capture useful patterns.</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Parameters:</strong> The "knobs" inside the model that get tuned during training. (Similar to weights but more general)</p>
+                    </div>
+                    <div class="card fragment" style="padding: 0.8rem;">
+                        <p><strong style="color: #DC143C;">Bias:</strong> A systematic mistake. Model favors one type of outcome unfairly.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How LLMs Actually Work -->
+            <section>
+                <h2>How LLMs Actually Work 🧠</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1rem; font-size: 1em;">The Architecture</h3>
+                <div class="content-with-image fragment">
+                    <div class="text-content" style="font-size: 0.7em;">
+                        <p>LLMs predict the next most likely token. They don't have a "truth database" — they're sophisticated autocomplete on steroids.</p>
+                        <p style="margin-top: 0.8rem; color: #999999;">Sometimes the most likely next word is <strong>confidently wrong</strong>. 😬</p>
+                        <div class="card" style="margin-top: 1rem; padding: 1rem;">
+                            <p><strong style="color: #DC143C;">Training Gaps:</strong> The model never saw certain information, so it interpolates based on patterns.</p>
+                            <p style="margin-top: 0.8rem; font-style: italic; color: #999999;">"Like a student who didn't study for a test and is winging the essay question with 'vibes.'" 📝✨</p>
+                        </div>
+                    </div>
+                    <div class="image-content">
+                        <div style="font-size: 4em;">🧠⚙️</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post-Training Methods -->
+            <section data-background-color="#1a1a1a">
+                <h2>Post-Training Methods 🛠️</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1rem; font-size: 1em;">Your Toolkit</h3>
+                <div style="font-size: 0.7em; text-align: left;">
+                    <p class="fragment">1️⃣ <strong>Prompt Engineering</strong> - Start here. Always. It's free and fast.</p>
+                    <p class="fragment">2️⃣ <strong>RAG (Retrieval-Augmented Generation)</strong> - For knowledge that changes or wasn't in training</p>
+                    <p class="fragment">3️⃣ <strong>Fine-tuning (SFT)</strong> - For behavior, tone, and task-specific patterns</p>
+                    <p class="fragment">4️⃣ <strong>Function Calling</strong> - For precision tasks like math, APIs, structured data</p>
+                    <p class="fragment">5️⃣ <strong>Preference Optimization (RLHF/DPO)</strong> - For alignment and safety</p>
+                </div>
+                <div class="card fragment" style="margin-top: 1.5rem; padding: 1.2rem; font-size: 0.7em;">
+                    <p style="color: #DC143C;"><strong>Quality > Quantity</strong></p>
+                    <p style="margin-top: 0.8rem; color: #999999;">In training data, prompts, and everything else. Curate ruthlessly. Test relentlessly. Iterate constantly.</p>
+                </div>
+            </section>
+
+            <!-- The Cheat Sheet -->
+            <section>
+                <h2>The Post-Training Cheat Sheet 📋</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1rem; font-size: 1em;">Your Quick Reference Guide</h3>
+                <ul style="font-size: 0.7em; text-align: left;">
+                    <li class="fragment">✅ Start with WHY - Have a clear reason before you begin</li>
+                    <li class="fragment">📊 Evaluate capabilities → THEN train - Know your baseline first</li>
+                    <li class="fragment">🍳 Use SFT → PO → RL - Follow the proven recipe</li>
+                    <li class="fragment">🎯 Curate clean, balanced data - Quality over quantity, always</li>
+                    <li class="fragment">🔄 Run evals after each step - Measure progress continuously</li>
+                    <li class="fragment">🎉 When done right → Reliable, aligned assistant</li>
+                </ul>
+                <p class="fragment" style="margin-top: 2rem; font-style: italic; font-size: 0.65em; color: #999999;">
+                    "Post-training isn't magic — it's cooking: pick good ingredients, taste often, and don't burn the kitchen." 👨‍🍳🔥
+                </p>
+            </section>
+
+            <!-- Key Takeaways -->
+            <section data-background-color="#1a1a1a">
+                <h2>Key Takeaways 🎯</h2>
+                <h3 style="color: #DC143C; margin-bottom: 1.5rem; font-size: 1.1em;">What to Remember Tomorrow</h3>
+                <div style="font-size: 0.75em;">
+                    <p class="fragment">💡 <strong>Post-Training ≠ Magic</strong> - It's a powerful toolkit, use the right tool</p>
+                    <p class="fragment">🎯 <strong>Start Simple, Scale Smart</strong> - Prompt engineering → RAG → Fine-tuning → Function calling</p>
+                    <p class="fragment">🐛 <strong>Hallucinations Are Features</strong> - You can reduce them with RAG, grounding, and smart prompting</p>
+                    <p class="fragment">⭐ <strong>Quality > Quantity</strong> - In training data, prompts, and everything else</p>
+                </div>
+                <p class="fragment" style="margin-top: 2rem; font-size: 1em; color: #DC143C;">
+                    <strong>Test relentlessly. Iterate constantly.</strong>
+                </p>
+            </section>
+
+            <!-- Final Wisdom -->
+            <section data-background-color="#0a0a0a">
+                <h2>Final Wisdom 🧙‍♂️</h2>
+                <div style="font-size: 0.9em; margin-top: 2rem; line-height: 1.8;">
+                    <p class="fragment">Post-training is powerful, but it's not a magic wand</p>
+                    <p class="fragment">Use it when it makes sense</p>
+                    <p class="fragment"><strong>Not when memes tell you to</strong> 😄</p>
+                    <p class="fragment" style="margin-top: 2.5rem; font-size: 1.2em; color: #DC143C;">
+                        Now go forth and build something awesome! 🚀
+                    </p>
+                </div>
+            </section>
+
+            <!-- Thank You Slide -->
+            <section data-background-color="#0a0a0a">
+                <h1>Thank You!</h1>
+                <h3 style="color: #999999; font-weight: 400;">Questions?</h3>
+                <p style="margin-top: 2rem; font-size: 0.85em; color: #999999;">
+                    <em>"You don't need bigger models — you need smarter training"</em>
+                </p>
+                <p style="margin-top: 2rem; font-size: 0.75em; font-style: italic; color: #999999;">
+                    Let's chat!
+                </p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/zoom/zoom.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+        }).then(() => {
+            document.querySelector('.reveal').classList.add('ready');
+        });
+    </script>
+</body>
+</html>
