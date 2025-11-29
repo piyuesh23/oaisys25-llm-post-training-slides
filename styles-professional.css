@@ -1220,6 +1220,221 @@
     line-height: 1.25;
 }
 
+/* Demo Content */
+.demo-content {
+    margin-top: 2rem;
+}
+
+.demo-card {
+    padding: 1.5rem;
+    background: rgba(42, 42, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.demo-card h3 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+}
+
+.demo-card p {
+    font-size: 1em;
+    color: var(--text-color);
+    margin: 0.5rem 0;
+}
+
+.demo-card .detail {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.demo-results {
+    margin-bottom: 1.5rem;
+}
+
+.demo-results h3 {
+    font-size: 1.3em;
+    color: var(--text-color);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+}
+
+.metrics-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.metric-column {
+    padding: 1.5rem;
+    background: rgba(42, 42, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    border-radius: 12px;
+}
+
+.metric-column.highlight {
+    border-color: rgba(220, 20, 60, 0.5);
+    background: rgba(220, 20, 60, 0.1);
+}
+
+.metric-column h4 {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+    text-align: center;
+}
+
+.demo-insight {
+    padding: 1.5rem;
+    background: rgba(220, 20, 60, 0.15);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.demo-insight p {
+    font-size: 1em;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Training Diagrams - Merged Image */
+.training-diagram-merged {
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diagram-image-map {
+    position: relative;
+    display: inline-block;
+    max-width: 70%;
+    width: 70%;
+}
+
+.merged-diagram-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid rgba(220, 20, 60, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-overlay {
+    left: 0;
+    width: 20%;
+}
+
+.right-overlay {
+    right: 0;
+    width: 80%;
+}
+
+.hover-overlay:hover {
+    background: rgba(220, 20, 60, 0.1);
+}
+
+.hover-overlay:hover .zoom-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hover-overlay .zoom-icon {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hover-overlay .zoom-icon::before {
+    content: '⤢';
+    font-size: 3.5em;
+    color: var(--primary-color);
+    text-shadow: 
+        0 0 20px rgba(220, 20, 60, 0.8),
+        0 0 40px rgba(220, 20, 60, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+    font-weight: 300;
+    line-height: 1;
+}
+
+.hover-overlay:hover .zoom-icon::before {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 20px rgba(220, 20, 60, 0.8),
+            0 0 40px rgba(220, 20, 60, 0.6),
+            0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    50% {
+        text-shadow: 
+            0 0 30px rgba(220, 20, 60, 1),
+            0 0 60px rgba(220, 20, 60, 0.8),
+            0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+.diagram-caption {
+    font-size: 0.75em;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    line-height: 1.2;
+    font-style: italic;
+    flex-shrink: 0;
+}
+
+.click-hint {
+    font-size: 0.7em;
+    color: var(--primary-color);
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Responsive: Stack diagrams on smaller screens */
+@media (max-width: 1024px) {
+    .training-diagrams {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .zoom-icon {
+        font-size: 2.5em;
+    }
+}
+
 /* Final Message */
 .final-message {
     margin-top: 2rem;

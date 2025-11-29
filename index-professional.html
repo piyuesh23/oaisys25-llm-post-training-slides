@@ -447,6 +447,67 @@
                 </div>
             </section>
 
+            <!-- Live Demo: SMS Spam Detection -->
+            <section data-background-color="#1a1a1a" class="compact-slide">
+                <h2 class="section-title">Live Demo</h2>
+                <p class="section-subtitle">Fine-Tuning DistilGPT2 for SMS Spam Detection</p>
+                <div class="demo-content">
+                    <div class="demo-card fragment">
+                        <h3>The Task</h3>
+                        <p>Fine-tune DistilGPT2 on SMS spam dataset (5,572 messages)</p>
+                        <p class="detail">Binary classification: Ham (legitimate) vs Spam</p>
+                    </div>
+                    <div class="demo-results fragment">
+                        <h3>Results: Before vs After Fine-Tuning</h3>
+                        <div class="metrics-comparison">
+                            <div class="metric-column">
+                                <h4>Baseline Model</h4>
+                                <ul class="metrics-list">
+                                    <li>Accuracy: 85.7%</li>
+                                    <li>F1-Score: 0.00</li>
+                                    <li>Precision: 0.00</li>
+                                    <li>Recall: 0.00</li>
+                                </ul>
+                            </div>
+                            <div class="metric-column highlight">
+                                <h4>Fine-Tuned Model</h4>
+                                <ul class="metrics-list">
+                                    <li>Accuracy: 99.1% ✓</li>
+                                    <li>F1-Score: 96.8% ✓</li>
+                                    <li>Precision: 100% ✓</li>
+                                    <li>Recall: 93.8% ✓</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-insight fragment">
+                        <p><strong>Key Insight:</strong> Fine-tuning transformed a model that couldn't detect spam at all into one with near-perfect precision. This is fine-tuning done right — teaching behavior patterns, not facts.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Training Process Visualized -->
+            <section data-background-color="#1a1a1a">
+                <h2 class="section-title">How Fine-Tuning Works</h2>
+                <p class="section-subtitle">The Complete Training Pipeline <span class="click-hint">(Click sections to enlarge)</span></p>
+                <div class="training-diagram-merged">
+                    <div class="diagram-image-map">
+                        <img src="Group 48097862.png" alt="Complete fine-tuning process" class="merged-diagram-image" usemap="#diagram-map">
+                        <map name="diagram-map">
+                            <area shape="rect" coords="0,0,20%,100%" href="flow-training.png" target="_blank" alt="End-to-End Pipeline" title="Click to view Pipeline diagram">
+                            <area shape="rect" coords="20%,0,100%,100%" href="sequence-digram-training.png" target="_blank" alt="Training Loop" title="Click to view Training Loop diagram">
+                        </map>
+                        <div class="hover-overlay left-overlay" onclick="window.open('flow-training.png', '_blank')">
+                            <span class="zoom-icon"></span>
+                        </div>
+                        <div class="hover-overlay right-overlay" onclick="window.open('sequence-digram-training.png', '_blank')">
+                            <span class="zoom-icon"></span>
+                        </div>
+                    </div>
+                    <p class="diagram-caption">Left: End-to-end pipeline (10 steps) | Right: Training loop (batch processing & weight updates)</p>
+                </div>
+            </section>
+
             <!-- Post-Training Methods -->
             <section data-background-color="#1a1a1a" class="compact-slide">
                 <h2 class="section-title">Post-Training Methods</h2>
