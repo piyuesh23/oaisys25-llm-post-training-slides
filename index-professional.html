@@ -237,6 +237,87 @@
                 </div>
             </section>
 
+            <!-- Real-World Example -->
+            <section data-background-color="#1a1a1a">
+                <h2 class="section-title">Real-World Example</h2>
+                <p class="section-subtitle">Customer Support Bot Transformation</p>
+                <div class="two-column-layout">
+                    <div class="column">
+                        <div class="info-card error">
+                            <h3 class="card-title">❌ The Wrong Approach</h3>
+                            <p><strong>Strategy:</strong> Fine-tune on all historical tickets</p>
+                            <ul class="metrics-list">
+                                <li>Cost: $5,000 upfront</li>
+                                <li>Time: 3 weeks</li>
+                                <li>Result: Outdated info, hallucinated policies</li>
+                                <li>Accuracy: 65%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="info-card highlight">
+                            <h3 class="card-title">✓ The Right Approach</h3>
+                            <p><strong>Strategy:</strong> RAG + Prompt Engineering</p>
+                            <ul class="metrics-list">
+                                <li>Cost: $500/month</li>
+                                <li>Time: 3 days</li>
+                                <li>Result: Always current, cites sources</li>
+                                <li>Accuracy: 92%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-insight fragment">
+                    <p><strong>The Lesson:</strong> Fine-tuning taught the bot HOW to respond, but RAG gave it WHAT to say. The combination of better prompting + RAG delivered 10x faster at 1/10th the cost.</p>
+                </div>
+            </section>
+
+            <!-- Cost & Time Reality -->
+            <section>
+                <h2 class="section-title">The Reality Check</h2>
+                <p class="section-subtitle">Cost, Time & Expertise Requirements</p>
+                <div class="reality-table">
+                    <div class="reality-row reality-header">
+                        <div class="reality-cell">Method</div>
+                        <div class="reality-cell">Cost</div>
+                        <div class="reality-cell">Time</div>
+                        <div class="reality-cell">Expertise</div>
+                        <div class="reality-cell">Best For</div>
+                    </div>
+                    <div class="reality-row fragment">
+                        <div class="reality-cell"><strong>Prompt Engineering</strong></div>
+                        <div class="reality-cell cost-free">Free</div>
+                        <div class="reality-cell">Hours-Days</div>
+                        <div class="reality-cell">Low</div>
+                        <div class="reality-cell">Quick wins, iteration</div>
+                    </div>
+                    <div class="reality-row fragment">
+                        <div class="reality-cell"><strong>RAG</strong></div>
+                        <div class="reality-cell cost-low">$-$$</div>
+                        <div class="reality-cell">Days-Week</div>
+                        <div class="reality-cell">Medium</div>
+                        <div class="reality-cell">Dynamic knowledge</div>
+                    </div>
+                    <div class="reality-row fragment">
+                        <div class="reality-cell"><strong>Fine-tuning (SFT)</strong></div>
+                        <div class="reality-cell cost-medium">$$-$$$</div>
+                        <div class="reality-cell">1-3 Weeks</div>
+                        <div class="reality-cell">High</div>
+                        <div class="reality-cell">Tone, style, format</div>
+                    </div>
+                    <div class="reality-row fragment">
+                        <div class="reality-cell"><strong>RLHF/DPO</strong></div>
+                        <div class="reality-cell cost-high">$$$-$$$$</div>
+                        <div class="reality-cell">Weeks-Months</div>
+                        <div class="reality-cell">Very High</div>
+                        <div class="reality-cell">Alignment, safety</div>
+                    </div>
+                </div>
+                <div class="pro-tip fragment">
+                    <strong>Pro Tip:</strong> Always start with the cheapest, fastest option. Graduate to more expensive methods only when you've exhausted simpler approaches.
+                </div>
+            </section>
+
             <!-- Decision Tree -->
             <section>
                 <h2 class="section-title">The Decision Framework</h2>
@@ -410,6 +491,81 @@
                 <div class="key-principle fragment">
                     <strong>Quality > Quantity</strong>
                     <p>In training data, prompts, and everything else. Curate ruthlessly. Test relentlessly. Iterate constantly.</p>
+                </div>
+            </section>
+
+            <!-- Common Pitfalls -->
+            <section data-background-color="#1a1a1a" class="compact-slide">
+                <h2 class="section-title">Common Pitfalls to Avoid</h2>
+                <p class="section-subtitle">Learn from others' expensive mistakes</p>
+                <div class="pitfalls-grid">
+                    <div class="pitfall-card fragment">
+                        <div class="pitfall-number">1</div>
+                        <div class="pitfall-content">
+                            <h3>Training Without Baseline</h3>
+                            <p>Starting fine-tuning without measuring current performance. You won't know if you improved or made things worse.</p>
+                        </div>
+                    </div>
+                    <div class="pitfall-card fragment">
+                        <div class="pitfall-number">2</div>
+                        <div class="pitfall-content">
+                            <h3>Mixing Knowledge & Behavior</h3>
+                            <p>Trying to teach facts AND tone in the same fine-tuning run. Use RAG for facts, fine-tuning for style.</p>
+                        </div>
+                    </div>
+                    <div class="pitfall-card fragment">
+                        <div class="pitfall-number">3</div>
+                        <div class="pitfall-content">
+                            <h3>Ignoring Data Quality</h3>
+                            <p>Throwing all available data at the model. 100 clean examples beat 10,000 messy ones every time.</p>
+                        </div>
+                    </div>
+                    <div class="pitfall-card fragment">
+                        <div class="pitfall-number">4</div>
+                        <div class="pitfall-content">
+                            <h3>Over-Optimizing Test Sets</h3>
+                            <p>Tuning until your test metrics are perfect. You've memorized the test, not learned the task.</p>
+                        </div>
+                    </div>
+                    <div class="pitfall-card fragment">
+                        <div class="pitfall-number">5</div>
+                        <div class="pitfall-content">
+                            <h3>Skipping Prompt Engineering</h3>
+                            <p>Jumping straight to fine-tuning. Try better prompts first — it's free and takes minutes, not weeks.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- When NOT to Post-Train -->
+            <section>
+                <h2 class="section-title">When NOT to Post-Train</h2>
+                <p class="section-subtitle">Red Flags That Should Make You Stop</p>
+                <div class="red-flags-grid">
+                    <div class="red-flag-card fragment">
+                        <h3>It's Actually a UX Problem</h3>
+                        <p>Users are confused because your interface is bad, not because the model is bad. Fix the UI first.</p>
+                    </div>
+                    <div class="red-flag-card fragment">
+                        <h3>You Have <50 Quality Examples</h3>
+                        <p>Fine-tuning needs hundreds of good examples minimum. With less, you're just teaching it to overfit.</p>
+                    </div>
+                    <div class="red-flag-card fragment">
+                        <h3>You Haven't Tried Better Prompts</h3>
+                        <p>90% of "we need fine-tuning" problems can be solved with better prompt engineering. Start there.</p>
+                    </div>
+                    <div class="red-flag-card fragment">
+                        <h3>Chasing Benchmarks, Not Value</h3>
+                        <p>Optimizing for leaderboard scores instead of actual business metrics. Your users don't care about BLEU scores.</p>
+                    </div>
+                    <div class="red-flag-card fragment">
+                        <h3>Your Data is Messy/Contradictory</h3>
+                        <p>Training on inconsistent data teaches inconsistent behavior. Clean your data or don't train at all.</p>
+                    </div>
+                    <div class="red-flag-card fragment">
+                        <h3>No Clear Success Criteria</h3>
+                        <p>If you can't define what "better" means with metrics, you can't measure if training worked.</p>
+                    </div>
                 </div>
             </section>
 

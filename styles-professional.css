@@ -993,6 +993,233 @@
     line-height: 1.4;
 }
 
+/* Metrics List */
+.metrics-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.metrics-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 0.9em;
+}
+
+.metrics-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Reality Table */
+.reality-table {
+    margin-top: 2rem;
+}
+
+.reality-row {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 1fr 1fr 1.5fr;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(42, 42, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.reality-row:hover {
+    border-color: rgba(220, 20, 60, 0.5);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.15);
+}
+
+.reality-header {
+    background: rgba(220, 20, 60, 0.15);
+    border-color: var(--primary-color);
+    font-weight: 700;
+}
+
+.reality-cell {
+    display: flex;
+    align-items: center;
+    font-size: 0.85em;
+    color: var(--text-color);
+}
+
+.reality-header .reality-cell {
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+.cost-free {
+    color: #4CAF50 !important;
+    font-weight: 700;
+}
+
+.cost-low {
+    color: #8BC34A !important;
+    font-weight: 700;
+}
+
+.cost-medium {
+    color: #FFC107 !important;
+    font-weight: 700;
+}
+
+.cost-high {
+    color: #FF5722 !important;
+    font-weight: 700;
+}
+
+/* Pitfalls Grid */
+.pitfalls-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pitfall-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(42, 42, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.pitfall-card:hover {
+    border-color: rgba(220, 20, 60, 0.5);
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.15);
+}
+
+.pitfall-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    background: rgba(220, 20, 60, 0.2);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    font-size: 1.3em;
+    font-weight: 800;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.pitfall-content h3 {
+    font-size: 1em;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-color);
+}
+
+.pitfall-content p {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Compact slide adjustments for pitfalls */
+.reveal .slides section.compact-slide .pitfalls-grid {
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.reveal .slides section.compact-slide .pitfall-card {
+    padding: 1rem;
+    gap: 0.8rem;
+}
+
+.reveal .slides section.compact-slide .pitfall-number {
+    width: 2.2em;
+    height: 2.2em;
+    font-size: 1.1em;
+}
+
+.reveal .slides section.compact-slide .pitfall-content h3 {
+    font-size: 0.9em;
+    margin-bottom: 0.4rem;
+}
+
+.reveal .slides section.compact-slide .pitfall-content p {
+    font-size: 0.75em;
+    line-height: 1.4;
+}
+
+/* Red Flags Grid */
+.red-flags-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+
+.red-flag-card {
+    padding: 1rem;
+    background: rgba(42, 42, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.red-flag-card:hover {
+    border-color: rgba(220, 20, 60, 0.6);
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.2);
+    transform: translateY(-2px);
+}
+
+.red-flag-card h3 {
+    font-size: 0.95em;
+    margin: 0 0 0.6rem 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.red-flag-card p {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Compact slide adjustments for red flags */
+.reveal .slides section.compact-slide .red-flags-grid {
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.reveal .slides section.compact-slide .red-flag-card {
+    padding: 0.7rem;
+}
+
+.reveal .slides section.compact-slide .red-flag-icon {
+    font-size: 1.6em;
+    margin-bottom: 0.4rem;
+}
+
+.reveal .slides section.compact-slide .red-flag-card h3 {
+    font-size: 0.8em;
+    margin-bottom: 0.3rem;
+}
+
+.reveal .slides section.compact-slide .red-flag-card p {
+    font-size: 0.65em;
+    line-height: 1.25;
+}
+
 /* Final Message */
 .final-message {
     margin-top: 2rem;
