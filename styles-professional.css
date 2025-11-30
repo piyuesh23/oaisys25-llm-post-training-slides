@@ -465,7 +465,7 @@
 /* Comparison Grid */
 .comparison-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
     margin: 1.2rem 0;
 }
@@ -1007,6 +1007,7 @@
     color: var(--text-muted);
     line-height: 1.5;
     font-size: 0.9em;
+    list-style-type: none;
 }
 
 .metrics-list li::before {
